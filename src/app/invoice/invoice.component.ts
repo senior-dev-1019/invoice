@@ -26,8 +26,8 @@ export class InvoiceComponent implements OnInit {
   insuranceAmount = 0;
   accessoriesAmount = 0;
 
-  modelablcok: any = [0];
-  modelabl: any = [0];
+  modelablcok: any = [""];
+  modelabl: any = [""];
   grandtotal: any;
   model: any;
   private isButtonVisible = true;
@@ -183,13 +183,7 @@ export class InvoiceComponent implements OnInit {
     totalFuel = totalFuel.replace(',', '');
     totalFuel = parseFloat(totalFuel.substring(1));
 
-    this.insuranceAmount = parseFloat($('#insurance').val());
-    this.accessoriesAmount = parseFloat($('#access').val());
-
-    console.log(totalDue);
-    console.log(totalFuel + this.insuranceAmount + this.accessoriesAmount);
-
-    const grandTotal = totalDue - (totalFuel + this.insuranceAmount + this.accessoriesAmount);
+    const grandTotal = totalDue - totalFuel;
     $('#grandtotal').html(formatter.format(grandTotal));
 
     setTimeout(() => {

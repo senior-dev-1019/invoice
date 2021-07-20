@@ -157,8 +157,8 @@
     <!-- fuel table -->
 
     <div class="d-flex flex-row">
-      <div class="d-flex flex-column width_50">
-        <div class="adjust_title">Fuel Charges</div>
+      <div class="d-flex flex-column width_100">
+        <div class="adjust_title">Charges</div>
         <table class="table table-bordered" id="fuelTable" style="margin-top: 20px !important;">
           <thead>
           <tr>
@@ -182,53 +182,15 @@
           </tbody>
         </table>
 
-
         <div class="d-flex flex-row" style="align-self: flex-end">
           <div class="d-flex flex-column" style="margin-top: 20px !important;">
             <div class="flex-row" style="align-self: flex-end; margin-bottom: 5px !important;">
               <span class="grand_total_label">Fuel Total: </span>
               <span class="grand_total" id="fueltotal">$0</span>
             </div>
-
             <button class="add_fuel_btn" (click)="addFuel()">Add Fuel</button>
-
           </div>
         </div>
-
-
-      </div>
-      <div class="width_50">
-        <div class="adjust_title">Adjustments</div>
-        <table class="table table-bordered" id="AddjectTable" style="margin-top: 20px !important;">
-          <thead>
-          <tr>
-            <th>Item</th>
-            <th>Amount</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td style="vertical-align: middle !important;">
-              Insurance
-            </td>
-            <td style="vertical-align: middle !important;">
-              <input type="text" name="Insurance" class="qty1" id='insurance'>
-            </td>
-          </tr>
-          <tr>
-            <td style="vertical-align: middle !important;">
-              Accessories
-            </td>
-            <td style="vertical-align: middle !important;">
-              <input type="text" name="accessories" class="qty1" id='access'>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-        <div>
-
-        </div>
-
       </div>
     </div>
 

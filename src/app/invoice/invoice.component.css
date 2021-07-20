@@ -224,7 +224,9 @@ table td input {
   position: relative;
 
 }
-
+.width_100 {
+  width: 100%;
+}
 .adjust_total {
   bottom: -40px;
   right: -50px;
