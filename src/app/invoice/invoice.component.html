@@ -1,0 +1,247 @@
+<section id="content" #content class="main">
+  <div class="head_blue"></div>
+  <div class="gnr_section">
+    <h2>H R Transportation LLC</h2>
+    <span>4420 Woodgate LN,<br>Louisville, KY 40220, United States,<br>+1 502-209-9080</span>
+  </div>
+  <div class="statment_part">
+    <h1>Statement</h1>
+    <div class="date_part">
+      <div class="dates">
+        <label>start date:</label>
+        <form>
+          <input type="date" name="startdate">
+        </form>
+      </div>
+      <div class="dates">
+        <label>End date:</label>
+        <form>
+          <input type="date" name="startdate">
+        </form>
+      </div>
+    </div>
+    <div class="invoice_for">
+      <div class="left_part">
+        <p>Invoice for</p>
+        <div class="invoice_info">
+          <div class="title_invoce">
+            Name
+          </div>
+          <div class="value_invoice">
+            <input type="text" name="name">
+          </div>
+        </div>
+        <div class="invoice_info">
+          <div class="title_invoce">
+            Company Name
+          </div>
+          <div class="value_invoice">
+            <input type="text" name="cname">
+          </div>
+        </div>
+        <div class="invoice_info">
+          <div class="title_invoce">
+            Street address
+          </div>
+          <div class="value_invoice">
+            <input type="text" name="address">
+          </div>
+        </div>
+        <div class="invoice_info">
+          <div class="title_invoce">
+            City, state, zip
+          </div>
+          <div class="value_invoice">
+            <input type="text" name="city">
+          </div>
+        </div>
+      </div>
+      <div class="right_part">
+        <p>Statement #</p>
+        <div class="value_invoice">
+          <input type="text" name="weeks">
+        </div>
+        <p class="issusdate">Issued date</p>
+        <div class="value_invoice">
+          <input type="date" name="idate">
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <div>
+  </div>
+
+  <div class="table_part flex-column">
+    <button class="add_btn text-center" (click)="addElement()">Add</button>
+
+    <table class="table table-bordered" id="myTable">
+      <thead>
+      <tr>
+        <th>Origion</th>
+        <th>Destination</th>
+        <th>Date</th>
+        <th>Rate</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let movie of movies; let i = index; trackBy:trackByIndex;">
+        <td>
+          <input type="text"
+                 class="form-control"
+                 #input
+                 id="cuntryserach"
+                 value=""
+                 [(ngModel)]="modelablcok[i]"
+                 [ngbTypeahead]="searchblock"
+                 [inputFormatter]="formatters"
+                 [resultTemplate]="rt"
+                 (selectItem)="onBlcokSelectItem($event, input)"
+          >
+
+          <ng-template #rt let-r="result" let-t="term">
+            <ngb-highlight [result]="r" [term]="t"></ngb-highlight>
+          </ng-template>
+
+        </td>
+        <td>
+          <input type="text"
+                 class="form-control"
+                 #input
+                 id="cuntryserach"
+                 value=""
+                 [(ngModel)]="modelabl[i]"
+                 [ngbTypeahead]="searchblock"
+                 [inputFormatter]="formatters"
+                 [resultTemplate]="rt"
+                 (selectItem)="onBlcokSelectItem($event, input)">
+
+          <ng-template #rt let-r="result" let-t="term">
+            <ngb-highlight [result]="r" [term]="t"></ngb-highlight>
+          </ng-template>
+        </td>
+        <td>
+          <input type="date" name="Date">
+        </td>
+        <td>
+          <input type="text" name="Rate" class='txtCal'>
+        </td>
+
+
+      </tr>
+      </tbody>
+    </table>
+
+
+    <div class="d-flex flex-row" style="align-self: flex-end">
+      <div class="d-flex flex-column" style="margin-top: 20px !important;">
+        <div class="flex-row" style="align-self: flex-end; margin-bottom: 5px !important;">
+          <span class="grand_total_label">Freight Charges: </span>
+          <span class="grand_total" id="total_sum_value">$0</span>
+        </div>
+
+        <div class="flex-row" style="align-self: flex-end; margin-bottom: 5px !important;">
+          <span class="grand_total_label">10% Charge: </span>
+          <span class="grand_total" id="result" style="margin-top: 5px !important;">$0</span>
+        </div>
+        <div class="flex-row" style="align-self: flex-end; margin-bottom: 5px !important;">
+          <span class="grand_total_label">Net Total: </span>
+          <span class="grand_total" id="duetotal" style="margin-top: 5px !important;">$0</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="fuel_table flex-column">
+    <!-- fuel table -->
+
+    <div class="d-flex flex-row">
+      <div class="d-flex flex-column width_50">
+        <div class="adjust_title">Fuel Charges</div>
+        <table class="table table-bordered" id="fuelTable" style="margin-top: 20px !important;">
+          <thead>
+          <tr>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Amount</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let fuel of fuels; let i = index;">
+            <td>
+              <input type="date" name="Date">
+            </td>
+            <td>
+              <input type="text" name="Location" class=''>
+            </td>
+            <td>
+              <input type="text" name="Totalamount" class='fuelCal'>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+
+        <div class="d-flex flex-row" style="align-self: flex-end">
+          <div class="d-flex flex-column" style="margin-top: 20px !important;">
+            <div class="flex-row" style="align-self: flex-end; margin-bottom: 5px !important;">
+              <span class="grand_total_label">Fuel Total: </span>
+              <span class="grand_total" id="fueltotal">$0</span>
+            </div>
+
+            <button class="add_fuel_btn" (click)="addFuel()">Add Fuel</button>
+
+          </div>
+        </div>
+
+
+      </div>
+      <div class="width_50">
+        <div class="adjust_title">Adjustments</div>
+        <table class="table table-bordered" id="AddjectTable" style="margin-top: 20px !important;">
+          <thead>
+          <tr>
+            <th>Item</th>
+            <th>Amount</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td style="vertical-align: middle !important;">
+              Insurance
+            </td>
+            <td style="vertical-align: middle !important;">
+              <input type="text" name="Insurance" class="qty1" id='insurance'>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: middle !important;">
+              Accessories
+            </td>
+            <td style="vertical-align: middle !important;">
+              <input type="text" name="accessories" class="qty1" id='access'>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="d-flex" style="align-self: flex-end; margin-top: 30px !important;">
+      <span class="grand_total_label">Grand Total: </span>
+      <span class="grand_total" id="grandtotal">0</span>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <button class="export_btn" (click)="ionViewDidLoad()">Export To PDF</button>
+  </div>
+</section>
+
+
+
