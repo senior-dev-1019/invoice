@@ -162,18 +162,14 @@
         <table class="table table-bordered" id="fuelTable" style="margin-top: 20px !important;">
           <thead>
           <tr>
-            <th>Date</th>
-            <th>Location</th>
+            <th>Items</th>
             <th>Amount</th>
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let fuel of fuels; let i = index;">
             <td>
-              <input type="date" name="Date">
-            </td>
-            <td>
-              <input type="text" name="Location" class=''>
+              <input type="text" name="fuelItem" class='fuelItem'>
             </td>
             <td>
               <input type="text" name="Totalamount" class='fuelCal'>
@@ -185,10 +181,10 @@
         <div class="d-flex flex-row" style="align-self: flex-end">
           <div class="d-flex flex-column" style="margin-top: 20px !important;">
             <div class="flex-row" style="align-self: flex-end; margin-bottom: 5px !important;">
-              <span class="grand_total_label">Fuel Total: </span>
+              <span class="grand_total_label">Total: </span>
               <span class="grand_total" id="fueltotal">$0</span>
             </div>
-            <button class="add_fuel_btn" (click)="addFuel()">Add Fuel</button>
+            <button class="add_fuel_btn" (click)="addFuel()">Add</button>
           </div>
         </div>
       </div>

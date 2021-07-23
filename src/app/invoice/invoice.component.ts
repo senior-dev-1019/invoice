@@ -28,8 +28,10 @@ export class InvoiceComponent implements OnInit {
 
   modelablcok: any = [""];
   modelabl: any = [""];
+  modelablfuel: any = [""];
   grandtotal: any;
   model: any;
+  locations: any = [];
   private isButtonVisible = true;
 
   selectEvent(item: string) {
@@ -53,7 +55,7 @@ export class InvoiceComponent implements OnInit {
       style: 'currency',
       currency: 'USD',
     });
-
+    this.locations = ["South Creek, WA", "Roslyn, WA", "Sprague, WA", "Gig Harbor"];
     $(document).ready(() => {
       $('#myTable').on('input', '.txtCal', function() {
         let calculatedTotalSum = 0;
